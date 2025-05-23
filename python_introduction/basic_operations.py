@@ -9,7 +9,7 @@ sum_result = number1 + number2
 difference_result = number1 - number2
 
 #perform multiplication
-product_result = number1 - number2
+product_result = number1 * number2
 
 #print the results of each operation in a human-readable format
 print(f"Addition of {number1} and {number2} is {sum_result}")
