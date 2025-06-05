@@ -10,4 +10,8 @@ def main():
     print(f"Result: {result}")
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     main()
+=======
+    main()
+>>>>>>> f2d0ad508f8e640f83f785cbc628680baa0f9364
