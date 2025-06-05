@@ -1,5 +1,15 @@
-def perform_operation(num1,num2,operation):
-    operation = operation.lower()
+def perform_operation(num1: float, num2: float, operation: str):
+    """
+    Performs basic arithmetic operations on two numbers.
+    
+    Args:
+        num1 (float): First number
+        num2 (float): Second number
+        operation (str): The operation to perform ('add', 'subtract', 'multiply', 'divide')
+        
+    Returns:
+        float or str: Result of the operation, or error message for division by zero
+    """
     if operation == 'add':
         return num1 + num2
     elif operation == 'subtract':
@@ -8,7 +18,7 @@ def perform_operation(num1,num2,operation):
         return num1 * num2
     elif operation == 'divide':
         if num2 == 0:
-            return "Error: Division by zero"
+            return "Error: Division by zero is not allowed"
         return num1 / num2
     else:
         return "Error: Invalid operation"
