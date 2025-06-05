@@ -1,42 +1,46 @@
-def display_menu():
-    print("Shopping List Manager")
-    print("1. Add Item")
-    print("2. Remove Item")
-    print("3. View List")
-    print("4. Exit")
+python
+
+from datetime import datetime, timedelta
+
+def display_current_datetime():
+    """
+    Displays the current date and time in the format YYYY-MM-DD HH:MM:SS.
+    """
+    current_date = datetime.now()
+    formatted_date = current_date.strftime("%Y-%m-%d %H:%M:%S")
+    print(f"Current date and time: {formatted_date}")
+    return current_date
+
+def calculate_future_date(current_date, days):
+    """
+    Calculates the future date by adding the specified number of days to the current date.
+    
+    Args:
+        current_date (datetime): The starting date
+        days (int): Number of days to add
+        
+    Returns:
+        datetime: The future date
+    """
+    future_date = current_date + timedelta(days=days)
+    formatted_future_date = future_date.strftime("%Y-%m-%d")
+    print(f"Future date: {formatted_future_date}")
+    return future_date
 
 def main():
-    shopping_list = []
-    while True:
-        display_menu()
-        choice = input("Enter your choice: ")
-
-        if choice == '1':
-            item = input("Enter item to add: ").strip()
-            if item:  # Check if input is not empty
-                shopping_list.append(item)
-                print(f"{item} added to the shopping list.")
-            else:
-                print("Item name cannot be empty.")
-        elif choice == '2':
-            item = input("Enter item to remove: ").strip()
-            if item in shopping_list:
-                shopping_list.remove(item)
-                print(f"{item} removed from the shopping list.")
-            else:
-                print(f"{item} not found in the shopping list.")
-        elif choice == '3':
-            if shopping_list:
-                print("\nCurrent Shopping List:")
-                for i, item in enumerate(shopping_list, 1):
-                    print(f"{i}. {item}")
-            else:
-                print("The shopping list is empty.")
-        elif choice == '4':
-            print("Goodbye!")
-            break
+    # Part 1: Display current date and time
+    current_date = display_current_datetime()
+    
+    # Part 2: Calculate future date
+    try:
+        days = int(input("Enter the number of days to add to the current date: "))
+        if days < 0:
+            print("Please enter a non-negative number of days.")
         else:
-            print("Invalid choice. Please try again.")
+            calculate_future_date(current_date, days)
+    except ValueError:
+        print("Please enter a valid integer for the number of days.")
 
 if __name__ == "__main__":
     main()
+
